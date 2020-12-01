@@ -1,0 +1,59 @@
+﻿@using MyApp.Models
+@model PlacesModel
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<div class="leading-loose">
+    @*<form class="max-w-xl m-4 p-5 bg-white">*@
+    @using (Html.BeginForm("UpdateThePlace", "Travel"))
+    {
+        <div class="">
+            @*<label class="block text-sm text-gray-600" for="cus_name">Name</label>*@
+            @Html.TextBoxFor(xz => xz.id, new { Value = Model.id, Class = "w-full px-5 py-1 text-gray-700 bg-gray-200 rounded hidden" })
+            @*@Html.ValidationMessageFor(xz => xz.name, "", new { Class = "text-red-600" })*@
+
+        </div>
+        <div class="">
+            <label class="block text-sm text-gray-600" for="cus_name">Name</label>
+            @Html.TextBoxFor(xz => xz.name, new { Value = Model.name, Class = "w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" })
+            @Html.ValidationMessageFor(xz => xz.name, "", new { Class = "text-red-600" })
+
+        </div>
+        <div class="">
+            <label class="block text-sm text-gray-600" for="cus_email">Prime</label>
+            @Html.TextBoxFor(xz => xz.isPrime, new { Value = Model.isPrime, Class = "w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" })
+            @Html.ValidationMessageFor(xz => xz.isPrime, "", new { Class = "text-red-600" })
+
+        </div>
+        <div class="">
+            <label class="block text-sm text-gray-600" for="cus_email">Description</label>
+            @Html.TextBoxFor(xz => xz.description, new { Value = Model.description, Class = "w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" })
+            @Html.ValidationMessageFor(xz => xz.description, "", new { Class = "text-red-600" })
+
+        </div>
+        <div class="">
+            <label class="block text-sm text-gray-600" for="cus_email">image url</label>
+            @Html.TextBoxFor(xz => xz.image_url, new { Value = Model.image_url, Class = "w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" })
+            @Html.ValidationMessageFor(xz => xz.image_url, "", new { Class = "text-red-600" })
+
+        </div>
+        <div class="">
+            <label class="block text-sm text-gray-600" for="cus_email">price</label>
+            @Html.TextBoxFor(xz => xz.price, new { Value = Model.price, Class = "w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" })
+            @Html.ValidationMessageFor(xz => xz.price, "", new { Class = "text-red-600" })
+
+        </div>
+        <div class="">
+            <label class="block text-sm text-gray-600" for="cus_email">days</label>
+            @Html.TextBoxFor(xz => xz.days, new { Value = Model.days, Class = "w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" })
+            @Html.ValidationMessageFor(xz => xz.days, "", new { Class = "text-red-600" })
+
+        </div>
+        <div class="mt-4">
+            <button class="px-4 py-1 text-white font-light tracking-wider w-100 block bg-gray-900 rounded" type="submit">update</button>
+        </div>
+    }
+

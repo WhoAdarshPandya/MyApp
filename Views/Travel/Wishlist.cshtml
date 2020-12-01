@@ -1,0 +1,55 @@
+﻿@using MyApp.Models
+@model List<PlacesModel>
+
+@{
+    ViewBag.Title = "Wish list";
+}
+
+<h2 class="text-4xl text-white py-2 underline text-center">Wish list</h2>
+
+<div class="max-w-7xl mx-auto">
+
+    <section id="reco" class="text-gray-700 body-font">
+        <div class="container px-5 py-12 mx-auto">
+            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+
+                @foreach (var item in Model)
+                {
+                    <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                        <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(@item.image_url)"></div>
+
+                        <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
+
+                            @if (item.isPrime == "True")
+                            {
+                                <div class="header-content inline-flex ">
+                                    <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
+                                        <div class="h-2 w-2 rounded-full m-1 bg-green-500 "></div>
+                                    </div>
+                                    <div class="category-title flex-1 text-sm"> Prime</div>
+                                </div>
+                            }
+                            <div class="title-post font-medium">@item.name</div>
+
+                            <div class="summary-post text-base text-justify">
+                                @item.description
+                                <div>
+                                    <button class="float-left bg-green-100 text-green-500 px-2 mt-4 block rounded p-2 text-sm"> @item.price - @item.days </button>
+                                    <a href="@Url.Action("RemoveFromWishlist","Travel",new {id = item.id })" class="float-right bg-green-100 p-1 mt-4 rounded-full text-green-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+
+                                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+</div>
+
